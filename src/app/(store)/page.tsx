@@ -3,7 +3,6 @@ import { ValueProps } from "@/components/home/ValueProps";
 import { CategoryStrip } from "@/components/home/CategoryStrip";
 import { EditorialBanner } from "@/components/home/EditorialBanner";
 import { StoreSection } from "@/components/home/StoreSection";
-import { LifestyleBand } from "@/components/home/LifestyleBand";
 import { BrandMarquee } from "@/components/home/BrandMarquee";
 import { ReviewsShowcase } from "@/components/home/ReviewsShowcase";
 import { Newsletter } from "@/components/layout/Newsletter";
@@ -46,7 +45,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <LifestyleBand />
 
       <BrandMarquee />
 

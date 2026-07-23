@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { shoppableCategories } from "@/lib/categories";
+import { categories } from "@/lib/categories";
 import { byCategory, getProduct, representativeProduct } from "@/lib/products";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
@@ -19,7 +19,7 @@ export function CategoryStrip() {
       </div>
 
       <div className="no-scrollbar -mx-5 flex gap-3.5 overflow-x-auto px-5 sm:mx-0 sm:grid sm:grid-cols-3 sm:px-0 lg:grid-cols-6">
-        {shoppableCategories.map((c, i) => {
+        {categories.map((c, i) => {
           const total = byCategory(c.slug).length;
           // Produto-símbolo da categoria (ex.: Árabes → Asad, Lattafa)
           const hero =

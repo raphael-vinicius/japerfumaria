@@ -12,9 +12,8 @@ export const brand = {
   initials: "JA",
   // Texto real da fachada e do logo da loja
   tagline: "Árabes e Importados",
-  offering: "Cosméticos · Semi Joias · Bolsas",
   descriptionShort:
-    "Perfumaria em Cabreúva especializada em perfumes árabes e importados originais — com cosméticos, semi joias e bolsas selecionadas.",
+    "Perfumaria em Cabreúva especializada em perfumes árabes e importados originais, com curadoria própria e atendimento de quem entende do assunto.",
   phoneDisplay: "(11) 93448-5614",
   whatsapp: "5511934485614",
   instagram: "jastoreparfum",

@@ -69,11 +69,6 @@ export interface Category {
   accent: string;
   accent2: string;
   /**
-   * Categoria conduzida no atendimento (sem grade de produtos no site).
-   * Ex.: semi joias e bolsas, que giram por curadoria/estoque físico.
-   */
-  consultOnly?: boolean;
-  /**
    * Produto-símbolo exibido no card da categoria (ex.: Árabes → Asad).
    * Se omitido, usa-se o best-seller da categoria automaticamente.
    */

@@ -3,8 +3,6 @@ import type { Category } from "./types";
 /**
  * Categorias JA Store Perfumaria.
  * Acentos harmonizados com a identidade real "blush & gold" da loja.
- * As três últimas (cosméticos, semi joias, bolsas) constam na fachada
- * da loja e são conduzidas por atendimento — marcadas com consultOnly.
  */
 export const categories: Category[] = [
   {
@@ -67,41 +65,7 @@ export const categories: Category[] = [
     accent2: "#A9C6B0",
     heroSlug: "sol-de-janeiro-brazilian-crush-62",
   },
-  // ————— Linhas da loja física conduzidas por atendimento —————
-  {
-    slug: "cosmeticos",
-    name: "Cosméticos",
-    tagline: "Cuidado e beleza para complementar",
-    description:
-      "Maquiagem, cuidados com a pele e itens de beleza que a JA seleciona para completar o seu ritual — disponíveis na loja e pelo atendimento.",
-    accent: "#A85A74",
-    accent2: "#E4AEC2",
-    consultOnly: true,
-  },
-  {
-    slug: "semijoias",
-    name: "Semi Joias",
-    tagline: "Douradas, delicadas, para todo dia",
-    description:
-      "Peças folheadas a ouro escolhidas para combinar com a sua fragrância — brincos, colares e pulseiras que giram por curadoria.",
-    accent: "#9C7A34",
-    accent2: "#DCC084",
-    consultOnly: true,
-  },
-  {
-    slug: "bolsas",
-    name: "Bolsas",
-    tagline: "O acabamento do look",
-    description:
-      "Bolsas e acessórios selecionados pela JA — modelos que entram e saem por temporada, apresentados no atendimento.",
-    accent: "#6E574F",
-    accent2: "#B69A90",
-    consultOnly: true,
-  },
 ];
-
-export const shoppableCategories = categories.filter((c) => !c.consultOnly);
-export const lifestyleCategories = categories.filter((c) => c.consultOnly);
 
 export const getCategory = (slug: string): Category | undefined =>
   categories.find((c) => c.slug === slug);
