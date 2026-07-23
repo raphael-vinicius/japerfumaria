@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ————————————————————————————————————————————————————————————
+   JA STORE PARFUM — camada base do Design System (Site 1)
+   Paleta "blush & gold": ivory (blush-creme) · ink (rosewood) · champagne (dourado)
+   ———————————————————————————————————————————————————————————— */
+
+:root {
+  --ivory: #f8f1eb;
+  --ink: #3e2d33;
+  --gold: #c09a54;
+  --blush: #e7c3c0;
+  --header-h: 4.75rem;
+}
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-ivory text-ink font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01";
+  }
+
+  ::selection {
+    background: var(--ink);
+    color: var(--ivory);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-light;
+    font-optical-sizing: auto;
+    letter-spacing: -0.012em;
+  }
+
+  * { scrollbar-width: thin; scrollbar-color: rgba(62,45,51,0.2) transparent; }
+  *::-webkit-scrollbar { width: 10px; height: 10px; }
+  *::-webkit-scrollbar-track { background: transparent; }
+  *::-webkit-scrollbar-thumb {
+    background: rgba(62, 45, 51, 0.18);
+    border-radius: 999px;
+    border: 3px solid var(--ivory);
+  }
+  *::-webkit-scrollbar-thumb:hover { background: rgba(62, 45, 51, 0.3); }
+}
+
+@layer components {
+  /* Grid mestre — respiro generoso, mobile-first */
+  .container-wrap {
+    @apply mx-auto w-full max-w-wrap px-5 sm:px-8 lg:px-12;
+  }
+
+  /* Rótulo/eyebrow — assinatura tipográfica da marca */
+  .eyebrow {
+    @apply font-sans text-2xs font-medium uppercase tracking-luxe text-champagne-dark;
+  }
+
+  /* Fio de ouro — detalhe recorrente do sistema */
+  .rule-gold {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(192, 154, 84, 0.5) 16%,
+      rgba(192, 154, 84, 0.5) 84%,
+      transparent
+    );
+    height: 1px;
+  }
+
+  /* Sublinhado que cresce — microinteração discreta */
+  .link-underline { @apply relative inline-block; }
+  .link-underline::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-current
+           transition-transform duration-500 ease-luxe;
+  }
+  .link-underline:hover::after { @apply origin-left scale-x-100; }
+
+  /* ————— Botões exclusivos (cantos vivos, tipografia caixa-alta) ————— */
+  .btn {
+    @apply relative inline-flex select-none items-center justify-center gap-2
+           font-sans text-[0.76rem] font-semibold uppercase tracking-wide3
+           transition-all duration-400 ease-luxe
+           disabled:cursor-not-allowed disabled:opacity-45;
+  }
+  .btn-primary { @apply btn bg-ink px-8 py-4 text-ivory hover:bg-ink-800; }
+  .btn-primary:hover { box-shadow: 0 20px 42px -28px rgba(62, 45, 51, 0.7); }
+  /* Dourado com texto ink: contraste AA e ar de alta joalheria */
+  .btn-gold { @apply btn bg-champagne px-8 py-4 text-ink hover:bg-champagne-light; }
+  .btn-gold:hover { box-shadow: 0 20px 42px -26px rgba(156, 121, 54, 0.7); }
+  .btn-outline { @apply btn border border-ink/25 px-8 py-4 text-ink hover:border-ink hover:bg-ink hover:text-ivory; }
+  .btn-ghost { @apply btn px-3 py-2 text-ink-600 hover:text-ink; }
+
+  /* Superfície de card */
+  .card-surface {
+    @apply border border-ink/[0.08] bg-ivory-50 shadow-card;
+  }
+
+  /* Skeleton shimmer */
+  .shimmer { @apply relative overflow-hidden bg-ivory-200; }
+  .shimmer::after {
+    content: "";
+    @apply absolute inset-0 -translate-x-full;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    animation: shimmer 1.6s infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Reveal cinematográfico — usado com moderação */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-in { opacity: 1; transform: none; }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .grain {
+    background-image: radial-gradient(rgba(62, 45, 51, 0.05) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+}
