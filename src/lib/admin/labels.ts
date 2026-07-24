@@ -19,6 +19,7 @@ import type {
   ReviewStatus,
   SalesChannel,
   ShippingMethod,
+  StaffRole,
   StockHealth,
 } from "./types";
 
@@ -135,6 +136,12 @@ export const ORIGIN: Record<Origin, string> = {
   arabe: "Árabe",
   importado: "Importado",
   nacional: "Nacional",
+};
+
+export const STAFF_ROLE: Record<StaffRole, string> = {
+  proprietario: "Proprietário",
+  gerente: "Gerente",
+  operador: "Operador",
 };
 
 export const COUPON_TYPE: Record<CouponType, string> = {

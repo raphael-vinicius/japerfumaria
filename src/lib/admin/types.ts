@@ -275,7 +275,7 @@ export interface AdminReview {
 
 /* ———————————————————— Equipe e atividades ———————————————————— */
 
-export type StaffRole = "proprietaria" | "gerente" | "operador";
+export type StaffRole = "proprietario" | "gerente" | "operador";
 
 export interface StaffUser {
   id: string;

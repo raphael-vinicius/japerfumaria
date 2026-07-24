@@ -94,11 +94,22 @@ export function LoginForm() {
             Use as credenciais da equipe para acessar a gestão da loja.
           </p>
 
-          <form onSubmit={submit} noValidate className="mt-7 flex flex-col gap-4">
+          {/*
+            autoComplete off no formulário e nos campos: o painel é um
+            protótipo sem autenticação real, então não queremos que o
+            navegador guarde nem sugira credenciais salvas de sessões
+            antigas por cima do valor padrão.
+          */}
+          <form
+            onSubmit={submit}
+            noValidate
+            autoComplete="off"
+            className="mt-7 flex flex-col gap-4"
+          >
             <Input
               label="E-mail"
               type="email"
-              autoComplete="username"
+              autoComplete="off"
               value={email}
               error={errors.email}
               onChange={(event) => setEmail(event.target.value)}
@@ -108,7 +119,7 @@ export function LoginForm() {
             <Input
               label="Senha"
               type="password"
-              autoComplete="current-password"
+              autoComplete="new-password"
               value={password}
               error={errors.password}
               onChange={(event) => setPassword(event.target.value)}

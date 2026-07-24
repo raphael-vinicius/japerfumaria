@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { formatBRL } from "@/lib/format";
 import { formatRelative } from "@/lib/admin/datetime";
+import { STAFF_ROLE } from "@/lib/admin/labels";
 import { useAdmin } from "@/lib/admin/store";
 import type { StoreSettings } from "@/lib/admin/types";
 import {
@@ -438,7 +439,11 @@ export function SettingsScreen() {
             <Card className="overflow-hidden">
               <CardHeader
                 title="Equipe"
-                description={`${staff.filter((user) => user.active).length} usuários com acesso ao painel`}
+                description={`${staff.filter((user) => user.active).length} ${
+                  staff.filter((user) => user.active).length === 1
+                    ? "usuário"
+                    : "usuários"
+                } com acesso ao painel`}
               />
               <TableWrap>
                 <Table minWidth="34rem">
@@ -471,7 +476,7 @@ export function SettingsScreen() {
                             </span>
                           </span>
                         </Td>
-                        <Td className="capitalize">{user.role}</Td>
+                        <Td>{STAFF_ROLE[user.role]}</Td>
                         <Td muted>{formatRelative(user.lastAccessAt)}</Td>
                         <Td>
                           <Badge

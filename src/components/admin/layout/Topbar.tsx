@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import clsx from "clsx";
 import { NOW, formatRelative } from "@/lib/admin/datetime";
+import { STAFF_ROLE } from "@/lib/admin/labels";
 import { lowStockRows, stockRows } from "@/lib/admin/metrics";
 import { useAdmin } from "@/lib/admin/store";
 import { IconButton } from "../ui/Button";
@@ -275,8 +276,8 @@ export function Topbar({
                 <span className="block truncate text-[12.5px] font-medium text-adm-ink">
                   {currentUser.name.split(" ")[0]}
                 </span>
-                <span className="block truncate text-micro capitalize text-adm-ink-3">
-                  {currentUser.role}
+                <span className="block truncate text-micro text-adm-ink-3">
+                  {STAFF_ROLE[currentUser.role]}
                 </span>
               </span>
               <ChevronDown size={14} className="shrink-0 text-adm-ink-3" />

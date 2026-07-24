@@ -61,47 +61,24 @@ const rng: Random = createRandom(20260723);
 
 export const staff: StaffUser[] = [
   {
-    id: "u-joyce",
-    name: "Joyce Almeida",
-    email: "joyce@jastoreparfum.com.br",
-    role: "proprietaria",
+    id: "u-bruno",
+    name: "Bruno Henrique",
+    email: "bruno@jastoreparfum.com.br",
+    role: "proprietario",
     active: true,
     lastAccessAt: addDays(NOW, 0).toISOString(),
-    initials: "JA",
-  },
-  {
-    id: "u-marina",
-    name: "Marina Costa",
-    email: "marina@jastoreparfum.com.br",
-    role: "gerente",
-    active: true,
-    lastAccessAt: new Date(NOW.getTime() - 3 * 3600_000).toISOString(),
-    initials: "MC",
-  },
-  {
-    id: "u-tiago",
-    name: "Tiago Ferreira",
-    email: "tiago@jastoreparfum.com.br",
-    role: "operador",
-    active: true,
-    lastAccessAt: new Date(NOW.getTime() - 26 * 3600_000).toISOString(),
-    initials: "TF",
-  },
-  {
-    id: "u-renata",
-    name: "Renata Dias",
-    email: "renata@jastoreparfum.com.br",
-    role: "operador",
-    active: false,
-    lastAccessAt: addDays(NOW, -74).toISOString(),
-    initials: "RD",
+    initials: "BH",
   },
 ];
 
-/** Usuário da sessão do painel (protótipo: sempre a proprietária). */
+/** Usuário da sessão do painel (protótipo: sempre o proprietário). */
 export const currentUser = staff[0];
 
-const OPERATORS = ["Marina Costa", "Tiago Ferreira", "Joyce Almeida"] as const;
+/**
+ * Autores das ações históricas. A loja tem um único responsável,
+ * então toda operação registrada é dele.
+ */
+const OPERATORS = ["Bruno Henrique"] as const;
 const SYSTEM = "Sistema";
 
 /* ———————————————————————— Geografia ———————————————————————— */
@@ -1219,10 +1196,10 @@ function buildReviews(): AdminReview[] {
           ? {
               body:
                 template.rating >= 4
-                  ? "Que alegria ler isso! Obrigada pela confiança — a JA agradece e já está te esperando na próxima. 💛"
-                  : "Obrigada pelo retorno sincero. Vamos te chamar no WhatsApp para entender melhor e resolver isso.",
+                  ? "Que alegria ler isso! Obrigado pela confiança — a JA agradece e já está te esperando na próxima. 💛"
+                  : "Obrigado pelo retorno sincero. Vamos te chamar no WhatsApp para entender melhor e resolver isso.",
               at: addDays(createdAt, randInt(reviewRng, 1, 3)).toISOString(),
-              author: "Joyce Almeida",
+              author: "Bruno Henrique",
             }
           : undefined,
     });
